@@ -64,5 +64,7 @@ app.post('/subscribe', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
+  console.log(`✅ Server is running on PORT: ${PORT}`);
+  console.log('💡 Environment PORT value:', process.env.PORT);
 });
+
