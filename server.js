@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
 const AUDIENCE_ID = process.env.AUDIENCE_ID;
