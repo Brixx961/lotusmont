@@ -6,13 +6,21 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-const MAILCHIMP_API_KEY = 'c3e6330bbe15a2a94e8cb2010adf9002-us19';
-const AUDIENCE_ID = '1f59d1e4bb';
-const DATACENTER = 'us19';
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
+const AUDIENCE_ID = process.env.AUDIENCE_ID;
+const DATACENTER = process.env.DATACENTER;
+
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
+const path = require('path');
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 
 app.post('/subscribe', async (req, res) => {
   const { email } = req.body;
