@@ -127,7 +127,7 @@ form button {
 .popup-message.error {
   background-color: transparent;
   color: #000;
-  border-color: #fff;
+  /* border-color: #fff; */
 }
 
 .popup-message.hidden {
