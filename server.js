@@ -46,14 +46,14 @@ app.post('/subscribe', async (req, res) => {
     );
 
     console.log('Mailchimp success response:', response.data);
-    res.status(200).json({ message: ' Subscribed successfully!' });
+    res.status(200).json({ message: 'Successful!' });
   } catch (error) {
     console.error('Mailchimp API error:', JSON.stringify(error.response?.data, null, 2) || error.message);
 
     const mailchimpError = error.response?.data;
 
     if (mailchimpError?.title === 'Member Exists') {
-      return res.status(400).json({ message: '⚠️ Email is already subscribed.' });
+      return res.status(400).json({ message: 'Email is already subscribed.' });
     }
 
     res.status(500).json({
