@@ -46,7 +46,7 @@ app.post('/subscribe', async (req, res) => {
     );
 
     console.log('Mailchimp success response:', response.data);
-    res.status(200).json({ message: '🎉 Subscribed successfully!' });
+    res.status(200).json({ message: ' Subscribed successfully!' });
   } catch (error) {
     console.error('Mailchimp API error:', JSON.stringify(error.response?.data, null, 2) || error.message);
 
