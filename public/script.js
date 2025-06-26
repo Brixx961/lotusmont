@@ -1,43 +1,42 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('subscribe-form');
+document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
   const emailInput = document.getElementById('email');
+  const email = emailInput.value;
+
+  try {
+    const res = await fetch('/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+    showPopup(data.message); // 🎉 show success popup
+
+    // ✅ Clear the input field
+    emailInput.value = '';
+  } catch (err) {
+    showPopup('Something went wrong. Try again later.', true); 
+  }
+});
+
+function showPopup(message, isError = false) {
   const popup = document.getElementById('popup-message');
   const popupText = document.getElementById('popup-text');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent default form submission
+  popupText.textContent = message;
+  popup.classList.remove('hidden');
+  popup.classList.add('show');
 
-    const email = emailInput.value.trim();
-    if (!email) return;
+  // Style based on error or success
+  popup.classList.toggle('error', isError);
 
-    try {
-      const response = await fetch('/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email })
-      });
+  // Hide after 3 seconds and clear text
+  setTimeout(() => {
+    popup.classList.remove('show');
+    popup.classList.add('hidden');
 
-      const result = await response.json();
-
-      popup.classList.remove('hidden', 'error');
-      popup.classList.add('show');
-      popupText.textContent = result.message;
-
-      if (!response.ok) {
-        popup.classList.add('error');
-      } else {
-        emailInput.value = ''; 
-        setTimeout(() => {
-          popup.classList.remove('show');
-    
-        }, 1000); 
-      }
-    } catch (err) {
-      popup.classList.remove('hidden');
-      popup.classList.add('show', 'error');
-      popupText.textContent = '❌ Something went wrong.';
-    }
-  });
-});
+    // ✅ Clear popup text
+    popupText.textContent = '';
+  }, 3000);
+}
