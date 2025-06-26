@@ -7,191 +7,155 @@
 body, html {
   height: 100%;
   font-family: 'Rubik', sans-serif;
-  background: url('assets/background.jpg') no-repeat center center/cover;
   color: #000;
+background: url('assets/background.jpg') no-repeat center center/cover;
 }
 
 .container {
-  min-height: 100%;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 40px 5%;
+  padding: 40px 20px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1440px;
-  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.2rem;
 }
 
 .logo img {
-  height: 45px;
+  height: 40px;
 }
 
-.socials svg {
-  width: 34px;
-  height: 34px;
-  margin-left: 20px;
-  cursor: pointer;
-  fill: #000;
+.mont {
+  font-weight: 400;
+}
+
+.socials img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  filter: brightness(0);
 }
 
 main {
+  text-align: center;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 2rem;
-  text-align: center;
-  padding: 40px 0;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
   letter-spacing: 8px;
+  margin-bottom: 20px;
 }
 
 p {
-  font-size: 1.2rem;
-  color: #8C8C8C;
-  line-height: 1.5;
-  max-width: 700px;
+  font-size: 0.9rem;
+  font-weight: 200;
+  color: #444;
+  margin-bottom: 30px;
 }
 
 form {
   display: flex;
-  width: 100%;
-  max-width: 665px;
-  height: 96px;
-  border-radius: 95px;
+  justify-content: center;
   border: 1px solid #000;
+  border-radius: 999px;
   overflow: hidden;
-  margin-top: 20px;
-  background: #fff;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 form input {
   flex: 1;
   border: none;
-  padding: 0 30px;
-  font-size: 1.1rem;
+  padding: 15px 20px;
+  font-size: 1rem;
   outline: none;
   background: transparent;
 }
 
 form button {
-  width: 80px;
   background: #000;
   color: #fff;
   border: none;
-  font-size: 1.5rem;
+  padding: 0 20px;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 
-#popup-message {
+.popup-message {
+  position: relative;
   margin-top: 20px;
   padding: 15px 25px;
-  border-radius: 10px;
+  border: 1px solid #fff;
+  background-color: #000;
+  color: #000;
   font-weight: 600;
   font-size: 0.95rem;
   text-align: center;
-  display: none;
+  border-radius: 10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  z-index: 10;
 }
 
-#popup-message.show {
-  display: block;
-}
-
-#popup-message.error {
-  background: #000;
+.popup-message.error {
+  background-color: #000;
   color: #fff;
+  border-color: #fff;
 }
+
+.popup-message.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup-message.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 footer {
-  padding-top: 20px;
   text-align: center;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+
 }
 
 .contact {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
-  color: #fff;
-  font-weight: 400;
+  gap: 20px;
+  align-items: center;
 }
 
 .contact span {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  form {
-    flex-direction: row;
-    height: auto;
-  }
-
-  form input {
-    padding: 15px 20px;
-    font-size: 1rem;
-  }
-
-  form button {
-    font-size: 1.3rem;
-  }
-
-  .logo img {
-    height: 40px;
-  }
-
-  .socials svg {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 20px;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  form {
-    flex-direction: column;
-    height: auto;
-    border-radius: 20px;
-  }
-
-  form input {
-    padding: 15px;
-    width: 100%;
-  }
-
-  form button {
-    width: 100%;
-    padding: 15px;
-    border-radius: 0;
-  }
-
-  .contact {
-    flex-direction: column;
-    gap: 10px;
-  }
+  gap: 8px;
+  font-weight: 400;
+  color: white;
+  font-size: 0.9rem;
 }
