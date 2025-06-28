@@ -260,15 +260,15 @@ form button {
   }
 
   #subscribe-form button{
-    padding-right: 50px;
-    width: 80%;
+    
+    width: 70%;
     max-width: 80%;
     font-size: 0.85rem;
   }
 
   #subscribe-form input{
-    padding-left: 50px;
-    max-width: 100%;
+    padding-left: 10px;
+    max-width: 70%;
     font-size: 0.9rem;
   }
 
