@@ -207,7 +207,7 @@ form button {
 }
 
 .popup-message {
-  position: absolute; 
+  position: relative;
   margin-top: 20px;
   padding: 15px 25px;
   /* border: 1px solid #fff; */
