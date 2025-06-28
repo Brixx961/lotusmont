@@ -22,6 +22,31 @@ body, html {
   }
 }
 
+@media (max-width: 768px) {
+  #subscribe-form input::placeholder {
+    color: black;
+    opacity: 1;
+  }
+
+  #subscribe-form input::-webkit-input-placeholder {
+    color: black;
+  }
+
+  #subscribe-form input:-moz-placeholder {
+    color: black;
+    opacity: 1;
+  }
+
+  #subscribe-form input::-moz-placeholder {
+    color: black;
+    opacity: 1;
+  }
+
+  #subscribe-form input:-ms-input-placeholder {
+    color: black;
+  }
+}
+
 
 .container {
   height: 100%;
@@ -322,7 +347,7 @@ form button {
   } */
 
   h1 {
-    font-size: 2.7rem;
+    font-size: 2.6rem;
     letter-spacing: 2px;
     padding-top: 0px; /* reduce internal padding */
     margin-top: 0px;
