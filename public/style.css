@@ -37,7 +37,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 7%;
+  margin: 40px 7%;
   flex-wrap: wrap;
 }
 
@@ -78,10 +78,14 @@ header {
 @media (max-width: 768px) {
   .hero-section {
     height: 100vh;
-    padding: 20px 10px;
+    padding: 20px 0px;
   }
   .swipe-down-indicator {
   padding-bottom: 50px;
+}
+
+.header{
+  padding: 0px !important;
 }
 
 }
@@ -107,8 +111,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  padding-bottom: 150px;
+  padding: 20px 10px;
+ padding-bottom: 150px;
   /* padding-top: 10px; */
 }
 
@@ -239,6 +243,7 @@ form button {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    padding: 0px;
   }
 
   form {
@@ -246,13 +251,25 @@ form button {
     /* width: 100px!important; */
   }
 
-  .subscribe-form{
-    max-width: 90%!important;
-    width: 70px!important;
+  #subscribe-form{
+    max-width: 70%!important;
+  }
+
+  #subscribe-form button{
+    padding-right: 50px;
+    width: 80%;
+    max-width: 80%;
+    font-size: 0.85rem;
+  }
+
+  #subscribe-form input{
+    padding-left: 50px;
+    max-width: 100%;
+    font-size: 0.9rem;
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     letter-spacing: 3px;
     
   }
@@ -285,7 +302,7 @@ form button {
   } */
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.7rem;
     letter-spacing: 2px;
   }
 
