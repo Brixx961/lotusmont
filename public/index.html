@@ -88,11 +88,12 @@
   </div>
 
   <!-- RIGHT SIDE: The form -->
-  <form class="contact-form">
-    <input type="text" placeholder="FULL NAME" required />
-    <input type="tel" placeholder="PHONE" required />
-    <input type="email" placeholder="E-MAIL" required />
-    <textarea placeholder="YOUR MESSAGE" required></textarea>
+  <form id="contact-form" class="contact-form">
+    <input type="text" placeholder="FULL NAME" id="contact-name" required />
+<input type="tel" placeholder="PHONE" id="contact-phone" required />
+<input type="email" placeholder="E-MAIL" id="contact-email" required />
+<textarea placeholder="YOUR MESSAGE" id="contact-message" required></textarea>
+
     <button type="submit">Contact Us</button>
 
     <!-- Contact info for mobile view only -->
@@ -100,7 +101,11 @@
 
     
   </form>
-  
+ 
+  <div id="contact-popup-message" class="popup-message hidden">
+  <p style="color: black;" id="contact-popup-text"></p>
+</div>
+
   
 <div class="contact-detail mobile-only"> 
  <div class="contact-col">
