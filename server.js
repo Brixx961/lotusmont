@@ -26,25 +26,23 @@ app.post('/subscribe', async (req, res) => {
     return res.status(400).json({ message: 'Email is required.' });
   }
 
+  // Split name into first and last name
+  const [firstName, ...lastNameParts] = name?.trim().split(' ') || [];
+  const lastName = lastNameParts.join(' ');
+
   try {
     const auth = Buffer.from(`anystring:${MAILCHIMP_API_KEY}`).toString('base64');
-
-    console.log('Attempting to subscribe:', email);
 
     const dataToSend = {
       email_address: email,
       status: 'subscribed',
+      merge_fields: {
+        FNAME: firstName || '',
+        LNAME: lastName || '',
+        PHONE: phone || '',
+        MESSAGE: message || ''
+      }
     };
-
-    // Add merge_fields only if full info is provided
-    if (name || phone || message) {
-      dataToSend.merge_fields = {
-      FNAME: name || '',          
-      PHONE: phone || '',
-      MESSAGE: message || '',     
-};
-
-    }
 
     const response = await axios.post(
       `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
@@ -58,7 +56,7 @@ app.post('/subscribe', async (req, res) => {
     );
 
     console.log('✅ Mailchimp success response:', response.data);
-    res.status(200).json({ message: '✅ Subscribed successfully!' });
+    res.status(200).json({ message: 'Thank you! Your message has been received.' });
   } catch (error) {
     console.error('❌ Mailchimp API error:', JSON.stringify(error.response?.data, null, 2) || error.message);
 
