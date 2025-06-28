@@ -11,12 +11,10 @@ document.getElementById('subscribe-form').addEventListener('submit', async (e) =
     });
 
     const data = await res.json();
-    showPopup(data.message); // show success popup
-
-    // Clear the input field
+    showPopup(data.message); // Global subscribe popup
     emailInput.value = '';
   } catch (err) {
-    showPopup('Something went wrong. Try again later.', true); 
+    showPopup('Something went wrong. Try again later.', true);
   }
 });
 
@@ -27,16 +25,28 @@ function showPopup(message, isError = false) {
   popupText.textContent = message;
   popup.classList.remove('hidden');
   popup.classList.add('show');
-
-  // Style based on error or success
   popup.classList.toggle('error', isError);
 
-  // Hide after 3 seconds and clear text
   setTimeout(() => {
     popup.classList.remove('show');
     popup.classList.add('hidden');
+    popupText.textContent = '';
+  }, 3000);
+}
 
-  //Clear popup text
+// Separate popup for contact form
+function showContactPopup(message, isError = false) {
+  const popup = document.getElementById('contact-popup-message');
+  const popupText = document.getElementById('contact-popup-text');
+
+  popupText.textContent = message;
+  popup.classList.remove('hidden');
+  popup.classList.add('show');
+  popup.classList.toggle('error', isError);
+
+  setTimeout(() => {
+    popup.classList.remove('show');
+    popup.classList.add('hidden');
     popupText.textContent = '';
   }, 3000);
 }
@@ -50,21 +60,20 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   const message = document.getElementById('contact-message').value;
 
   try {
-    const res = await fetch('https://lotusmont-production.up.railway.app/subscribe', {
+    const res = await fetch('/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, phone, email, message }),
     });
 
     const data = await res.json();
-showPopup('Thank you! Your message has been received.');
+    showContactPopup(data.message);
 
-    // Clear inputs
     document.getElementById('contact-name').value = '';
     document.getElementById('contact-phone').value = '';
     document.getElementById('contact-email').value = '';
     document.getElementById('contact-message').value = '';
   } catch (err) {
-    showPopup('Something went wrong. Try again later.', true);
+    showContactPopup('Something went wrong. Try again later.', true);
   }
 });
