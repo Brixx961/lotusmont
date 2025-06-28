@@ -47,6 +47,10 @@ body, html {
   }
 }
 
+#subscribe-form input:focus {
+  background-color: rgba(255, 255, 255, 0.9); /* or any color you want */
+  transition: background-color 0.2s ease;
+}
 
 .container {
   height: 100%;
