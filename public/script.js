@@ -57,7 +57,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     });
 
     const data = await res.json();
-    showPopup(data.message);
+showPopup('Thank you! Your message has been received.');
 
     // Clear inputs
     document.getElementById('contact-name').value = '';
