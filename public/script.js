@@ -11,7 +11,7 @@ document.getElementById('subscribe-form').addEventListener('submit', async (e) =
     });
 
     const data = await res.json();
-    showPopup(data.message); // Global subscribe popup
+    showPopup("Subscription successful"); // Global subscribe popup
     emailInput.value = '';
   } catch (err) {
     showPopup('Something went wrong. Try again later.', true);
@@ -67,7 +67,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     });
 
     const data = await res.json();
-    showContactPopup(data.message);
+    showContactPopup("Thank you! Your message has been received.");
 
     document.getElementById('contact-name').value = '';
     document.getElementById('contact-phone').value = '';

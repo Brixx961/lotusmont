@@ -225,6 +225,20 @@ form button {
   z-index: 10;
 }
 
+#contact-popup-message {
+  display: none;
+  text-align: center;
+  font-size: 0.95rem;
+  color: white;
+  margin-top: 15px;
+}
+
+#contact-popup-message.show {
+  display: block;
+}
+
+
+
 .popup-message.error {
   background-color: transparent;
   color: #000;
