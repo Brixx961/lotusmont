@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/subscribe', async (req, res) => {
-  const { email } = req.body;
+  const { email, name, phone, message } = req.body;
 
   if (!email) {
     return res.status(400).json({ message: 'Email is required.' });
@@ -31,12 +31,24 @@ app.post('/subscribe', async (req, res) => {
 
     console.log('Attempting to subscribe:', email);
 
+    const dataToSend = {
+      email_address: email,
+      status: 'subscribed',
+    };
+
+    // Add merge_fields only if full info is provided
+    if (name || phone || message) {
+      dataToSend.merge_fields = {
+      FNAME: name || '',          
+      PHONE: phone || '',
+      MESSAGE: message || '',     
+};
+
+    }
+
     const response = await axios.post(
       `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
-      {
-        email_address: email,
-        status: 'subscribed',
-      },
+      dataToSend,
       {
         headers: {
           Authorization: `Basic ${auth}`,
@@ -45,10 +57,10 @@ app.post('/subscribe', async (req, res) => {
       }
     );
 
-    console.log('Mailchimp success response:', response.data);
-    res.status(200).json({ message: 'Successful!' });
+    console.log('✅ Mailchimp success response:', response.data);
+    res.status(200).json({ message: '✅ Subscribed successfully!' });
   } catch (error) {
-    console.error('Mailchimp API error:', JSON.stringify(error.response?.data, null, 2) || error.message);
+    console.error('❌ Mailchimp API error:', JSON.stringify(error.response?.data, null, 2) || error.message);
 
     const mailchimpError = error.response?.data;
 
@@ -65,6 +77,4 @@ app.post('/subscribe', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`✅ Server is running on PORT: ${PORT}`);
-  console.log('💡 Environment PORT value:', process.env.PORT);
 });
-
