@@ -256,11 +256,12 @@ form button {
    
   }
    header {
-    margin: 20px 7% 10px; /* reduced top and bottom margin */
+    margin: 20px 7% 0px; /* reduced top and bottom margin */
   }
 
   main {
     padding-top: 0px; /* reduce top space above content */
+    padding-bottom: 90px;
   }
 
   form {
