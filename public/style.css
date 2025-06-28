@@ -90,7 +90,9 @@ header {
   margin-top: 20px;
 }
 
-
+ body {
+    padding-top: env(safe-area-inset-top, 20px);
+  }
 
 }
 
