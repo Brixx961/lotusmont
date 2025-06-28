@@ -95,6 +95,10 @@ header {
   color: white;
 }
 
+.desktop-break {
+  display: none;
+}
+
 
 
 main {
@@ -125,6 +129,12 @@ p {
   line-height: 1.5;
   padding: 0 10px;
 }
+@media (min-width: 769px) {
+  .desktop-break {
+    display: inline;
+  }
+}
+
 
 #subscribe-form {
   width: 100%;
