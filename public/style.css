@@ -38,6 +38,7 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 40px 7%;
+  
   flex-wrap: wrap;
 }
 
@@ -79,6 +80,7 @@ header {
   .hero-section {
     height: 100vh;
     padding: 20px 0px;
+    padding-bottom: 0px;
   }
   .swipe-down-indicator {
   /* padding-bottom: 50px; */
@@ -88,6 +90,7 @@ header {
   padding: 0px 0px;
   padding-top: 30px !important;
   margin-top: 40px;
+  margin-bottom: 0%;
 }
 
  body {
@@ -118,7 +121,7 @@ main {
   flex-direction: column;
   justify-content: center;
   padding: 20px 10px;
- padding-bottom: 150px;
+  padding-top: 0px;
   /* padding-top: 10px; */
 }
 
@@ -237,6 +240,7 @@ form button {
   h1 {
     font-size: 5.0rem;
     letter-spacing: 4px;
+    padding-top: 0px;
   }
   /* form {
     width: ;
@@ -250,6 +254,13 @@ form button {
     align-items: center;
     gap: 10px;
    
+  }
+   header {
+    margin: 20px 7% 10px; /* reduced top and bottom margin */
+  }
+
+  main {
+    padding-top: 0px; /* reduce top space above content */
   }
 
   form {
@@ -277,6 +288,8 @@ form button {
   h1 {
     font-size: 3rem;
     letter-spacing: 3px;
+    padding-top: 0px; /* reduce internal padding */
+    margin-top: 0px;
     
   }
 
@@ -310,6 +323,8 @@ form button {
   h1 {
     font-size: 2.7rem;
     letter-spacing: 2px;
+    padding-top: 0px; /* reduce internal padding */
+    margin-top: 0px;
   }
 
   p {
