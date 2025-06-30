@@ -731,3 +731,11 @@ gap: 5px;
     display: none;
   }
 }
+
+.swipe-down-indicator {
+  text-align: center;
+  margin-top: 0px;
+  animation: bounce 2s infinite;
+  color: white;
+  /* padding-bottom: 150px; */
+}
