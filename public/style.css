@@ -12,8 +12,13 @@ html, body {
 body, html {
   height: 100%;
   font-family: 'Rubik', sans-serif;
-  color: #000;
+  color: #333;
+  /* background: url('assets/background.jpg') no-repeat center center/cover; */
+}
+
+.hero-section{
   background: url('assets/background.jpg') no-repeat center center/cover;
+  min-height: 100vh;;
 }
 
 @media (max-width: 768px) {

@@ -10,6 +10,13 @@ document.getElementById('subscribe-form').addEventListener('submit', async (e) =
       body: JSON.stringify({ email }),
     });
 
+//      try {
+//     const res = await fetch('https://lotusmont-production.up.railway.app/subscribe', {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json' },
+//   body: JSON.stringify({ email }),
+// });
+
     const data = await res.json();
     showPopup("Subscription successful"); // Global subscribe popup
     emailInput.value = '';
