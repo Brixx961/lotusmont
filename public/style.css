@@ -22,9 +22,10 @@ body, html {
 }
 
 @media (max-width: 768px) {
-  body, html {
-    background: url('assets/background-mobile.jpg') no-repeat center center/cover !important;
-  }
+  .hero-section{
+  background: url('assets/background.jpg') no-repeat center center/cover;
+ min-height: 100vh;;
+}
 }
 
 @media (max-width: 768px) {
@@ -392,14 +393,14 @@ form button {
 
 .swipe-down-indicator {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 10px;
   animation: bounce 2s infinite;
   color: white;
   /* padding-bottom: 150px; */
 }
 
 .swipe-down-indicator svg {
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 @keyframes bounce {
