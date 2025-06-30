@@ -707,14 +707,14 @@ gap: 5px;
 /* Specific style for the new swipe on mobile */
 .swipe-up-indicator {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5px;
   animation: bounce 2s infinite;
   color: white;
   font-size: 0.95rem;
 }
 
 .swipe-up-indicator svg {
-  margin-top: 5px;
+  margin-top: 0px;
   animation: bounce 2s infinite;
 }
 
