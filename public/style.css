@@ -229,7 +229,7 @@ form button {
   display: none;
   text-align: center;
   font-size: 0.95rem;
-  color: white;
+  color: white im
   margin-top: 15px;
 }
 
@@ -702,4 +702,24 @@ gap: 5px;
 
 
 
+}
+
+/* Specific style for the new swipe on mobile */
+.swipe-up-indicator {
+  text-align: center;
+  margin-top: 30px;
+  animation: bounce 2s infinite;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.swipe-up-indicator svg {
+  margin-top: 5px;
+  animation: bounce 2s infinite;
+}
+
+@media (min-width: 769px) {
+  .swipe-up-indicator {
+    display: none;
+  }
 }

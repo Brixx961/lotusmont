@@ -55,12 +55,22 @@
     </main>
 
     <!-- Arrow Indicator -->
-<div class="swipe-down-indicator">
+<!-- Desktop Swipe Indicator (Hidden on Mobile) -->
+<div class="swipe-down-indicator desktop-only">
   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="30" viewBox="0 0 12 30" fill="none">
     <path d="M6 0V28M6 28L1 23M6 28L11 23" stroke="#fff" stroke-width="2"/>
   </svg>
   <p style="color: white;">SWIPE UP</p>
 </div>
+
+<!-- Mobile Swipe Indicator (New + Positioned Below First Form) -->
+<div class="mobile-only swipe-up-indicator">
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="30" viewBox="0 0 12 30" fill="none">
+    <path d="M6 0V28M6 28L1 23M6 28L11 23" stroke="#fff" stroke-width="2"/>
+  </svg>
+  <p style="color: white;">SWIPE UP2</p>
+</div>
+
     </section>
   
   
